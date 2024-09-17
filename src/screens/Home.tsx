@@ -1,5 +1,6 @@
 const Home = () => {
-  return <h1>Home</h1>;
+  const users: any = [];
+  return <h1>{users.dff.f}</h1>;
 };
 
 export default Home;
