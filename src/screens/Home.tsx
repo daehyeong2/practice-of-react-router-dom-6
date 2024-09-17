@@ -1,14 +1,18 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { users } from "../db";
 
 const Home = () => {
-  const navigate = useNavigate();
-  setTimeout(() => {
-    navigate("/about");
-  }, 3000);
   return (
-    <h1>
-      Home<button onClick={() => navigate("/about")}>Go To About</button>
-    </h1>
+    <div>
+      <ul>
+        <h2>Users</h2>
+        {users.map((user) => (
+          <li key={user.id}>
+            <Link to={`/users/${user.id}`}>{user.name}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
