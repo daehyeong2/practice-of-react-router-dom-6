@@ -3,14 +3,15 @@ import { users } from "../db";
 
 const User = () => {
   const { userId } = useParams();
+  const userData = users[+(userId ?? -1) - 1];
   return (
     <div>
       <h1>
-        User with id {userId} is named: {users[+(userId ?? -1) - 1].name}
+        User with id {userId} is named: {userData.name}
       </h1>
       <hr />
       <Link to="followers">See followers</Link>
-      <Outlet />
+      <Outlet context={{ user: userData }} />
     </div>
   );
 };
